@@ -1,6 +1,13 @@
-<input [(ngModel)]="todo" type="text"><button (click)="createTodo()">erstellen</button>
-<li class="todos" *ngFor="let todo of todos; let i = index">
-    <input  type="checkbox" [checked]="todo.complete">
-    <div (click)="changeTodo()">{{todo.todo}}</div>
-    <button (click)="deleteToDo(i)">x</button>
-</li>
+<input [(ngModel)]="todo" type="text">
+<input type="calen">
+<button (click)="createTodo()">erstellen</button>
+<div class="todos" *ngFor="let todo of todos; let i = index">
+    <div class="todo" [cdkDragData]="i"
+    cdkDrag>
+        <input type="checkbox" [checked]="todo.complete">
+        <div (click)="changeTodo()">{{todo.todo}}</div>
+        <button (click)="deleteToDo(i)">x</button>
+    </div>
+</div>
+
+<app-calender></app-calender>
